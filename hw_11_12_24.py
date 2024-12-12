@@ -48,3 +48,33 @@ p=TextProcess(txt)
 p.split_sentences()
 p.process_sentence()
             
+#1 another method
+#first letter must be capital
+class Password:
+    def valid(text):
+        uppercase=0
+        lowercase=0
+        digit=0
+        specialcase=0
+        length=len(text)
+        if length<8:  # Ensure password length is at least 8
+            print("Your password is Invalid")
+            return
+        if not text[0].isupper():  # Check if the first letter is uppercase
+            print("Your password is Invalid")
+            return
+        for i in text:
+            if i.isupper():
+                uppercase+=1
+            elif i.islower():
+                lowercase+=1
+            elif i.isdigit():
+                digit+=1
+            else:
+                specialcase+=1
+        if uppercase>=1 and lowercase>=1 and digit>=1 and specialcase>=1:
+            print("Your password is Valid")
+        else:
+            print("Your password is Invalid")
+txt = input("Enter the password: ")
+Password.valid(txt)
